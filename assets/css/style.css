@@ -1,0 +1,32 @@
+body {
+    min-height: 100vh;
+    display: grid;
+    place-content: center center;
+}
+
+.container {
+    border-radius: 1em;
+    border-left: 0.5em solid rgb(135, 111, 240);
+    background-color: whitesmoke;
+}
+
+.container h1 {
+    color: rgb(135, 111, 240);
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 0.05em solid rgb(135, 111, 240);
+}
+
+.form-control::placeholder {
+    color: rgb(184, 178, 178);
+}
+
+.alert {
+    margin-top: 1em;
+    max-height: 2em;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
