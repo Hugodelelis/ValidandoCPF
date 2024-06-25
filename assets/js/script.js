@@ -2,17 +2,21 @@ let cpf = document.querySelector('#cpf')
 const verify = document.querySelector('#verify')
 
 verify.addEventListener('click', function() {
-   
+    console.log(cpfLimpo(cpf))
 })
 
-function mascaraCPF() {
-    let inputLength = cpf.value.length
+const mascaraCPF = () => {
+    let cpfFormated = cpf.value
 
-    if(inputLength === 3 || inputLength === 7) {
-        cpf.value += '.'
-    } else if (inputLength === 11) {
-        cpf.value += '-'
+    if (cpfFormated > 9) {
+        cpfFormated = cpfFormated.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, '$1.$2.$3-$4');
+    } else if (cpfFormated > 6) {
+        cpfFormated  = cpfFormated.replace(/(\d{3})(\d{3})(\d{1,3})/, '$1.$2.$3');
+    } else if (cpfFormated > 3) {
+        cpfFormated  = cpfFormated.replace(/(\d{3})(\d{1,3})/, '$1.$2');
     }
+
+    cpf.value = cpfFormated
 }
 
 const cpfLimpo = (cpf) => {
