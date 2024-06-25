@@ -2,7 +2,7 @@ let cpf = document.querySelector('#cpf')
 const verify = document.querySelector('#verify')
 
 verify.addEventListener('click', function() {
-    
+   
 })
 
 cpf.addEventListener('keypress', function () {
