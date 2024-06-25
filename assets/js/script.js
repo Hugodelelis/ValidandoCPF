@@ -5,7 +5,7 @@ verify.addEventListener('click', function() {
    
 })
 
-cpf.addEventListener('keypress', function () {
+cpf.addEventListener('input', function () {
     let inputLength = cpf.value.length
 
     if(inputLength === 3 || inputLength === 7) {
