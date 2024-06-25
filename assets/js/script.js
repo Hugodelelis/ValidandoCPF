@@ -5,7 +5,7 @@ verify.addEventListener('click', function() {
    
 })
 
-cpf.addEventListener('input', function () {
+function mascaraCPF() {
     let inputLength = cpf.value.length
 
     if(inputLength === 3 || inputLength === 7) {
@@ -13,7 +13,7 @@ cpf.addEventListener('input', function () {
     } else if (inputLength === 11) {
         cpf.value += '-'
     }
-})
+}
 
 const cpfLimpo = (cpf) => {
     return cpf.value.replace(/\D+/g, '')
