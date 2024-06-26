@@ -18,9 +18,9 @@ const mascaraCPF = () => {
     if (cpfFormatado > 9) {
         cpfFormatado = cpfFormatado.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, '$1.$2.$3-$4');
     } else if (cpfFormatado > 6) {
-        cpfFormatado  = cpfFormatado.replace(/(\d{3})(\d{3})(\d{1,3})/, '$1.$2.$3');
+        cpfFormatado = cpfFormatado.replace(/(\d{3})(\d{3})(\d{1,3})/, '$1.$2.$3');
     } else if (cpfFormatado > 3) {
-        cpfFormatado  = cpfFormatado.replace(/(\d{3})(\d{1,3})/, '$1.$2');
+        cpfFormatado = cpfFormatado.replace(/(\d{3})(\d{1,3})/, '$1.$2');
     }
 
     cpf.value = cpfFormatado
