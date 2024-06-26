@@ -1,9 +1,15 @@
-let cpf = document.querySelector('#cpf')
+const cpf = document.querySelector('#cpf')
 const verify = document.querySelector('#verify')
+const container = document.querySelector('.myContainer')
 
 verify.addEventListener('click', function() {
-    console.log(achaPirmeiroDigito())
-    console.log(achaSegundoDigito())
+    let array = viraArray()
+
+    if(array[9] == achaPirmeiroDigito() && array[10] == achaSegundoDigito()) {
+        return container.appendChild(setResult())
+    } else {
+        return container.appendChild(setError())
+    }
 })
 
 const mascaraCPF = () => {
@@ -18,6 +24,24 @@ const mascaraCPF = () => {
     }
 
     cpf.value = cpfFormatado
+}
+
+const criaDiv = () => {
+    return document.createElement('div')
+}
+
+const setResult = () => {
+    const div = criaDiv()
+    div.textContent = 'CPF válidado'
+    div.setAttribute('class', 'alert alert-primary')
+    return div
+}
+
+const setError = () => {
+    const div = criaDiv()
+    div.textContent = 'CPF inválido'
+    div.setAttribute('class', 'alert alert-danger')
+    return div
 }
 
 const cpfLimpo = (cpf) => {
