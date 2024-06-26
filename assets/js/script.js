@@ -47,7 +47,7 @@ const achaSegundoDigito = () => {
     let cont = 12
     const arrayMult = array.map(valor => valor * (cont-= 1))
     const arrayTot = arrayMult.reduce((ac, valor) => ac += Number(valor), 0)
-    const valorSegundo = 11 - (arrayTot % 11)
+    let valorSegundo = 11 - (arrayTot % 11)
     valorSegundo
 
     if(valorSegundo > 9) valorSegundo = 0
