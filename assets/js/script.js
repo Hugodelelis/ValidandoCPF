@@ -3,6 +3,7 @@ const verify = document.querySelector('#verify')
 
 verify.addEventListener('click', function() {
     console.log(achaPirmeiroDigito())
+    console.log(achaSegundoDigito())
 })
 
 const mascaraCPF = () => {
@@ -30,11 +31,26 @@ const viraArray = () => {
 const achaPirmeiroDigito = () => {
     let array = viraArray()
     array.splice(-2, 2)
+    let cont = 11
+    const arrayMult = array.map(valor => valor * (cont-= 1))
+    const arrayTot = arrayMult.reduce((ac, valor) => ac += Number(valor), 0)
+    let valorPrimeiro = 11- (arrayTot % 11)
 
+    if(valorPrimeiro > 9) valorPrimeiro = 0
+
+    return valorPrimeiro
 }
 
 const achaSegundoDigito = () => {
     let array = viraArray()
     array.splice(-1, 1)
+    let cont = 12
+    const arrayMult = array.map(valor => valor * (cont-= 1))
+    const arrayTot = arrayMult.reduce((ac, valor) => ac += Number(valor), 0)
+    const valorSegundo = 11 - (arrayTot % 11)
+    valorSegundo
 
+    if(valorSegundo > 9) valorSegundo = 0
+
+    return valorSegundo
 }
