@@ -1,14 +1,15 @@
 const cpf = document.querySelector('#cpf')
 const verify = document.querySelector('#verify')
 const container = document.querySelector('.myContainer')
+const result = document.querySelector('#result')
 
 verify.addEventListener('click', function() {
     let array = viraArray()
 
     if(array[9] == achaPirmeiroDigito() && array[10] == achaSegundoDigito()) {
-        return container.appendChild(setResult())
+        setResult()
     } else {
-        return container.appendChild(setError())
+        setError()
     }
 })
 
@@ -26,22 +27,14 @@ const mascaraCPF = () => {
     cpf.value = cpfFormatado
 }
 
-const criaDiv = () => {
-    return document.createElement('div')
-}
-
 const setResult = () => {
-    const div = criaDiv()
-    div.textContent = 'CPF válidado'
-    div.setAttribute('class', 'alert alert-primary')
-    return div
+    result.textContent = 'CPF válido'
+    result.setAttribute('class', 'alert alert-primary')
 }
 
 const setError = () => {
-    const div = criaDiv()
-    div.textContent = 'CPF inválido'
-    div.setAttribute('class', 'alert alert-danger')
-    return div
+    result.textContent = 'CPF inválido'
+    result.setAttribute('class', 'alert alert-danger')
 }
 
 const cpfLimpo = (cpf) => {
@@ -72,7 +65,6 @@ const achaSegundoDigito = () => {
     const arrayMult = array.map(valor => valor * (cont-= 1))
     const arrayTot = arrayMult.reduce((ac, valor) => ac += Number(valor), 0)
     let valorSegundo = 11 - (arrayTot % 11)
-    valorSegundo
 
     if(valorSegundo > 9) valorSegundo = 0
 
