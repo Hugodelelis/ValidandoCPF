@@ -10,6 +10,10 @@ verify.addEventListener('click', function() {
         setResult()
     } else {
         setError()
+    } 
+
+    if(checaSequencia() == cpfLimpo(cpf)) {
+        setError()
     }
 })
 
@@ -29,12 +33,17 @@ const mascaraCPF = () => {
 
 const setResult = () => {
     result.textContent = 'CPF válido'
-    result.setAttribute('class', 'alert alert-primary')
+    result.setAttribute('class', 'alert alert-success')
 }
 
 const setError = () => {
     result.textContent = 'CPF inválido'
     result.setAttribute('class', 'alert alert-danger')
+}
+
+const checaSequencia = () => {
+    const cpf = viraArray()
+    return cpf[0].repeat(cpf.length)
 }
 
 const cpfLimpo = (cpf) => {
